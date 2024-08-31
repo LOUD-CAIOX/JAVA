@@ -1,0 +1,81 @@
+:root {
+    --branco-principal: #FFFFFF;
+    --cinza-secundario: #C0C0C0;
+    --botao-azul: #167BF7;
+    --cor-de-fundo: #00030C;
+    --fonte-principal: 'Inter';
+    --botao-azul-efeito: #3c92fa;
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--branco-principal);
+}
+ 
+    nav {
+        text-align: right;
+        display: flex;
+        padding-bottom: 2em;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+.botao{
+    background-color: rgb(76, 0, 255);
+    border-radius: 5px solid rgb(0, 0, 0);
+    padding: 1em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-decoration: none;
+    margin-right: 1em;
+    width: 50%;
+    display: block;
+}
+.navegaçao :hover {
+    color: black;
+    background-color: green;
+    font-size: 25px;
+}
+.navegaçao :active{
+    color: red;
+    background-color: white;
+}
+h1{
+    text-align: center;
+}
+.formulario1 {
+  text-align: center;
+}
+form{
+    text-align: center;
+}
+.titulo_formulario {
+    text-align: center;
+    font-size: 30px;
+    background-color: rgb(76, 0, 255);
+    border-radius: 5px solid rgb(0, 0, 0);
+    padding: 1em;
+    color: rgb(255, 255, 255);
+    margin-right: 1em;
+    width: 100%;
+    display: block;
+}
+.formulario-LISTA li {
+    padding: 10px;
+    display: block;  
+    font-size: 30px;
+
+}
+.input_normal{
+    padding: 1em;
+    font-size: 20px;
+    text-decoration: none;
+}
+.botao_de_envio{
+    padding: 0em 3em 0em 3em;
+    text-align: center;
+    font-size: 30px;
+}
+

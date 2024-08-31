@@ -1,0 +1,197 @@
+:root {
+    --branco-principal: #FFFFFF;
+    --cinza-secundario: #C0C0C0;
+    --botao-azul: #167BF7;
+    --cor-de-fundo: #00030C;
+    --fonte-principal: 'Inter';
+    --botao-azul-efeito: #3c92fa;
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--branco-principal);
+}
+ 
+    nav {
+        text-align: right;
+        display: flex;
+        padding-bottom: 2em;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+.botao{
+    background-color: rgb(76, 0, 255);
+    border-radius: 5px solid rgb(0, 0, 0);
+    padding: 1em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-decoration: none;
+    margin-right: 1em;
+    width: 50%;
+    display: block;
+}
+.navegaçao :hover {
+    color: black;
+    background-color: green;
+    font-size: 25px;
+}
+.navegaçao :active{
+    color: red;
+    background-color: white;
+}
+.principal {
+    background-image: url("imagens/background.avif");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    align-items: center;
+    text-align: center;
+}
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.container__titulo {
+    font-size: 28px;
+    font-weight: 700px;
+}
+.container_paragrafo{
+    font-size: 15px;
+}
+.container_paragrafo:hover{
+    font-size: 25px;
+    text-transform: uppercase;
+    background-color: blue;
+}
+.container__botao{
+    background-color: var(--botao-azul);
+    border-radius: 5px;
+    padding: 1em;
+    color: var(--branco-principal);
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+.botao__secundario {
+    padding: 1em;
+    background-color: transparent;
+    border: 2px solid var(--branco-principal);
+    color: var(--branco-principal);
+    display: block;
+    text-align: center;
+}
+.container__aviso {
+    font-size: 14px;
+    color: var(--branco-principal);
+}
+.container__imagem {
+    margin: 1em 0 2em 1em;
+}
+.container__caixa {
+ margin: 0 6em;
+}
+.secundario__imagem {
+    width: 80%;
+}
+.secundario {
+    align-items: center;
+    margin: 0 10em;
+}
+.descricao__titulo {
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--branco-principal);
+    margin-bottom: 0.1em;
+}
+.descricao__texto {
+    color: var(--cinza-secundario);
+    font-size: 35px;
+}
+.secundario__botao {
+    display: inline-block;
+    margin-top: 1em;
+}
+.container__descricao {
+    padding: 2em;
+}
+.dispositivos {
+    text-align: center; 
+}
+.dispositivos__titulo {
+    font-size: 48px;
+    color: var(--branco-principal);
+    text-transform: uppercase;
+}
+.dispositivos__lista {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.imagens_d {
+    padding: 0 200px 0 200px; 
+}
+.lista__item {
+    font-size: 32px;
+    color: var(--branco-principal); text-align: center;
+    padding: 0 2em 0 0; 
+}
+.lista__link {
+    text-decoration: none;
+    margin: 0 1em 0 0;
+    font-size: 15px;
+    color: white;
+}
+.lista__link a:hover {
+    color: var(--botao-azul);
+}
+.lista__link a:active {
+    color: purple;
+}
+.container__botao:hover {
+    background-color: var(--botao-azul-efeito);
+    color: var(--cor-de-fundo);
+}
+
+.beneficio_titulo_espaço :hover {
+    background-color: rgb(36, 137, 204);
+    font-size: 35px;
+    transition: 2s;
+    color: black;
+}
+.beneficio_titulo {
+    text-align: center;
+    font-size: 30px;
+    border: white double;
+    padding: 1em;
+}
+.beneficio_titulo :hover{
+    font-size: 35px;
+}
+.beneficio{
+    padding: 1em 0 0 0;
+    border-radius: 1em;
+}
+.beneficio_lista{
+   text-align: center;
+   display: block;
+   padding-top: 1em;
+   border: white double;
+}
+.beneficio_quadrado :hover{
+    background-color: darkgreen;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    transition: 2s;
+}
+.beneficio_texto {
+    font-size: 20px; 
+}
+form {
+    text-align: center;
+    padding: 1em;
+    margin: 5em;
+}

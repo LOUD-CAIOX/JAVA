@@ -4,7 +4,7 @@
     <title>TURMA_2ºD</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/html_css.css">
+    <link rel="stylesheet" href="/css/html_css.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -12,38 +12,44 @@
 <body>
     <header>
         <nav class="navegaçao">
-            <a href="index.html" class="botao">principal</a>
+            <a href="TUDUJUNTO.HTML" class="botao">principal</a>
             <a href="meu teste de 30m.html" class="botao">CONTATO</a>
         </nav>
     </header>
     <main>
         <h1>R$ 14,99</h1>
     </main>
-    <section class="formulario1">
-        <form>
+    
+        <form id="cardForm">
             <h4 class="titulo_formulario"> Casdastrar seu Cartão </h4>
         <fieldset>
                 <div class="formulario_div">
                 <ul class="formulario-LISTA">
                 <li><label for="numero_do_cartão_label">Numero do cartão </label></li>      
-                <li><input type="text" id="numero_do_cartão" class="input_normal" placeholder="Digite os primeiros 6 dígitos"></li>
-                <li><button onclick="indetificar_cartão()" class="botao_de_envio">Identificar</button></li>   
-                <li><p id="resultado"></p></li>    
+                <li><input type="text" id="numero_do_cartão" class="input_normal" placeholder="Digite os primeiros 6 dígitos"></li> 
+                <li><p id="resultado"></p></li> 
+        </ul>   
         </fieldset>
         <fieldset class="formulario-LISTA">
-                    <li><label for="mm/aa">Data de vencimento</label></li>
-                    <li><input type="datetime" id="data" class="input_normal" required placeholder="MM/AA"></li>    
+            <ul>
+                <li><label for="NOME">NOME</label></li>
+                <li><input type="text" id="NOME" class="input_normal" required placeholder="matheus..."></li>
 
-                    <li><label for="cvc">CVC</label></li>
-                    <li><input type="number" id="CVC" class="input_normal" required placeholder="3 Digitos"></li>         
-                        
-                    <li><label for="email">Email</label></li>
-                    <li><input type="email" id="email" class="input_normal" required placeholder="matheus@seu_dominio"></li>    
+                <li><label for="DATA_DE_VENCIMENTO">Data de vencimento</label></li>
+                <li><input type="text" id="data" class="input_normal" required placeholder="MM/AA" maxlength="7" pattern="(0[1-9]|1[0-2])\/[0-9]{4}"></li>    
 
-                    <li><label for="senha">Senha ninguém irá ver</label></li> 
-                    <li><input type="number" id="senha_para_fazer_golpe" class="input_normal" required placeholder="8 Digitos"></li>
+                <li><label for="cvc">CVC</label></li>
+                <li><input type="text" id="CVC" class="input_normal" required placeholder="3 Digitos" maxnumber="3" pattern="[0-9]{3}"></li>         
+                    
+                <li><label for="email">Email</label></li>
+                <li><input type="email" id="email" class="input_normal" required placeholder="matheus@seu_dominio"></li>    
+
+                <li><label for="senha">Senha ninguém irá ver</label></li> 
+                <li><input type="text" id="senha_para_fazer_golpe" class="input_normal" required placeholder="8 Digitos" maxnumber="8" pattern="[0-9]{8}"></li>
+            </ul>
         </fieldset>
         <fieldset class="formulario-LISTA">
+            <ul>
                     <li><legend>QUAL É O BANCO?</legend></li>
 
                     <li><label for="banco"><input type="radio" name="contato" value="bradesco" id="radio-BRADESCO"> Bradesco</label></li>
@@ -61,6 +67,6 @@
         </div>
         </form>
     </section>
-    <script src="./java/script.js"></script>
+    <script src="/java/script.js"></script>
 </body>
 </html>

